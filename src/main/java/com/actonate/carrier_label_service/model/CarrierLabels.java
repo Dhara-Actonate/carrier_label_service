@@ -68,6 +68,9 @@ public class CarrierLabels {
     @Column(name = "shipment_tracking_url")
     private String shipmentTrackingUrl;
 
+    @Column(name = "shipment_id")
+    private String shipmentId;
+
     @Column(name = "label_generate_response_raw")
     private String labelGenerateResponseRaw;
 
@@ -75,7 +78,7 @@ public class CarrierLabels {
     private String trackingResponseRaw;
 
     @Column(name = "label_generated_at")
-    private String labelGeneratedAt;
+    private Date labelGeneratedAt;
 
     @Column(name = "label_generate_status")
     private String labelGenerateStatus;

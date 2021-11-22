@@ -97,7 +97,7 @@ public class CarrierServicesService {
     }
 
     public CarrierServices findByCode(String code) throws BadRequestException,NotFoundException {
-        Optional<CarrierServices> optionalData = this.carriersServicesRepository.findById(code);
+        Optional<CarrierServices> optionalData = this.carriersServicesRepository.findByCode(code);
 
         if (optionalData.isPresent()) {
             return optionalData.get();

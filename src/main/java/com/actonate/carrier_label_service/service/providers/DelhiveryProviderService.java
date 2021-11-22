@@ -1,6 +1,8 @@
 package com.actonate.carrier_label_service.service.providers;
 
+import com.actonate.carrier_label_service.model.CarrierLabels;
 import com.actonate.carrier_label_service.view_model.CarrierShipmentInfoViewModel;
+import com.actonate.carrier_label_service.view_model.ProviderConfigViewModel;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +10,14 @@ import org.springframework.stereotype.Service;
 public class DelhiveryProviderService extends ProviderService {
 
     @Override
-    public void generateLabel(CarrierShipmentInfoViewModel shipmentDetail, JSONObject config) {
+    public CarrierLabels generateLabel(CarrierShipmentInfoViewModel shipmentDetail, ProviderConfigViewModel config) {
         // generate label logic here
+
+        return new CarrierLabels();
+    }
+
+    @Override
+    public String generateTrackingInfo(CarrierShipmentInfoViewModel shipmentDetail, ProviderConfigViewModel config) {
+        return "";
     }
 }

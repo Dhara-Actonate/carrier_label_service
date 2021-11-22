@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShiprocketLabelResponseViewModel {
-    public Number label_created;
+    public int label_created;
 
     public String label_url;
 

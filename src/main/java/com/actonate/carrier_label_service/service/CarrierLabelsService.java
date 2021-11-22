@@ -34,7 +34,7 @@ public class CarrierLabelsService {
     }
 
 
-    public CarrierLabels update(CarrierLabels toUpdate,final String id) throws BadRequestException, NotFoundException {
+    public CarrierLabels update(CarrierLabels toUpdate, String id) throws BadRequestException, NotFoundException {
 
         // validate the input payload and throw exception if not satisfying condition
         this.validateUpdate(toUpdate);

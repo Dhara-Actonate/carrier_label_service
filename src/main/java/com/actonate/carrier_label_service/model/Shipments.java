@@ -45,6 +45,8 @@ public class Shipments {
 
     private String trackingCode;
 
+    private String awbNo;
+
     private String returnManifestUrl;
 
     private String invoiceUrl;
@@ -95,6 +97,11 @@ public class Shipments {
 
     private String manifestId;
 
+    private String carrierLabelId;
+
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "shipmentId")
+//    private List<CarrierLabels> labels;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "shipmentId")
