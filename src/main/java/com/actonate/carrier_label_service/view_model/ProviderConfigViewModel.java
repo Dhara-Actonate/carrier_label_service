@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProviderConfigViewModel {
-    public String username;
-    public String password;
-    public String baseUrl;
+    public String username="";
+    public String password = "";
+    public String baseUrl = "";
+    public String token = "";
+
 }

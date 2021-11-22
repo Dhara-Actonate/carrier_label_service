@@ -33,9 +33,7 @@ public class ShiprocketProviderService extends ProviderService {
     @Override
     public CarrierLabels generateLabel(CarrierShipmentInfoViewModel shipmentDetail, ProviderConfigViewModel config) {
 
-
         CarrierLabels labelInfo = new CarrierLabels();
-
 
         try{
             System.out.println("inside ShiprocketProviderService.generateLabel"+ config+ config.getBaseUrl());
@@ -171,9 +169,6 @@ public class ShiprocketProviderService extends ProviderService {
 
             return "";
         }
-
-
-        // WIP
 
     }
 }

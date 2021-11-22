@@ -5,6 +5,8 @@ import com.actonate.carrier_label_service.exceptions.BadRequestException;
 import com.actonate.carrier_label_service.model.CarrierAPIProviders;
 import com.actonate.carrier_label_service.model.CarrierLabels;
 import com.actonate.carrier_label_service.model.Shipments;
+import com.actonate.carrier_label_service.service.providers.BluedartProviderService;
+import com.actonate.carrier_label_service.service.providers.DelhiveryProviderService;
 import com.actonate.carrier_label_service.service.providers.ShiprocketProviderService;
 import com.actonate.carrier_label_service.view_model.CarrierShipmentInfoViewModel;
 import com.actonate.carrier_label_service.view_model.ProviderConfigViewModel;
@@ -47,7 +49,7 @@ public class CarrierTrackingProviderServiceImpl implements CarrierTrackingProvid
 
             System.out.println("Shipment Obj:"+ shipment + shipment.getCarrierLabelId());
 
-            if( shipment.getCarrierLabelId().isEmpty()) {
+            if( shipment.getCarrierLabelId() == null || shipment.getCarrierLabelId().isEmpty()) {
                 throw new BadRequestException("Shipment label id not found!");
             }
 
@@ -60,6 +62,18 @@ public class CarrierTrackingProviderServiceImpl implements CarrierTrackingProvid
 
                     ShiprocketProviderService shiprocketProviderService = new ShiprocketProviderService();
                     trackingResponse = shiprocketProviderService.generateTrackingInfo(shipmentDetail, jsonConfig);
+
+                    break;
+                case "DELHIVERY":
+
+                    DelhiveryProviderService delhiveryProviderService = new DelhiveryProviderService();
+                    trackingResponse = delhiveryProviderService.generateTrackingInfo(shipmentDetail, jsonConfig); // label url, response & status will be filled
+
+                    break;
+                case "BLUEDART":
+
+                    BluedartProviderService bluedartProviderService = new BluedartProviderService();
+                    trackingResponse = bluedartProviderService.generateTrackingInfo(shipmentDetail, jsonConfig); // label url, response & status will be filled
 
                     break;
                 default:

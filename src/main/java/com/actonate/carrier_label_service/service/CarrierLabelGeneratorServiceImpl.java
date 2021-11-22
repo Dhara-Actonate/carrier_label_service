@@ -4,6 +4,8 @@ import com.actonate.carrier_label_service.constants.CarrierConstants;
 import com.actonate.carrier_label_service.exceptions.BadRequestException;
 import com.actonate.carrier_label_service.exceptions.ErrorCodes;
 import com.actonate.carrier_label_service.model.*;
+import com.actonate.carrier_label_service.service.providers.BluedartProviderService;
+import com.actonate.carrier_label_service.service.providers.DelhiveryProviderService;
 import com.actonate.carrier_label_service.service.providers.ShiprocketProviderService;
 import com.actonate.carrier_label_service.view_model.CarrierShipmentInfoViewModel;
 import com.actonate.carrier_label_service.view_model.ProviderConfigViewModel;
@@ -78,6 +80,18 @@ public class CarrierLabelGeneratorServiceImpl implements CarrierLabelGeneratorSe
 
                         ShiprocketProviderService shiprocketProviderService = new ShiprocketProviderService();
                         labelInfo = shiprocketProviderService.generateLabel(shipmentDetail, jsonConfig); // label url, response & status will be filled
+
+                        break;
+                    case "DELHIVERY":
+
+                        DelhiveryProviderService delhiveryProviderService = new DelhiveryProviderService();
+                        labelInfo = delhiveryProviderService.generateLabel(shipmentDetail, jsonConfig); // label url, response & status will be filled
+
+                        break;
+                    case "BLUEDART":
+
+                        BluedartProviderService bluedartProviderService = new BluedartProviderService();
+                        labelInfo = bluedartProviderService.generateLabel(shipmentDetail, jsonConfig); // label url, response & status will be filled
 
                         break;
                     default:
