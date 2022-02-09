@@ -83,7 +83,7 @@ public class DelhiveryProviderService extends ProviderService {
         return labelInfo;
     }
 
-    public String generateShipment() {
+    public String generateOrderForCarrier() {
         // body
         // format=json&data={"pickup_location":{"pin":520007,"add":"LETSSHAVE","phone":"9848125125","state":"Andhra Pradesh","city":"Vijayawada","country":"India","name":"LETSSHAVE"},"shipments":[{"add":"LETSSHAVE","return_name":"LETSSHAVE","return_pin":"520007","return_city":"Vijayawada","return_phone":"9848125125","return_add":"54-11-5,PLOT NO 11 7TH ROAD 7TH ROAD VIJAYAWADA JAWAHAR AUTO NAGAR , Vijayawada, Andhra Pradesh ,India","return_state":"Andhra Pradesh","return_country":"India","order":"61604e8de45b4c407cea0b68","phone":"8989898989","products_desc":"Testing","cod_amount":"45","name":"Diwahar M","order_date":"2018-05-18 06:22:43","total_amount":"510","pin":"636006","quantity":"10","payment_mode":"Pre­paid","state":"Tamil Nadu","city":"Salem","client":"LETSSHAVE"}]}
         return "";
@@ -95,7 +95,6 @@ public class DelhiveryProviderService extends ProviderService {
         String trackingURL = config.getBaseUrl() + DelhiveryConstants.TRACKING_URL+"?token="+config.getToken()+"&waybill="+shipmentDetail.getShipmentInfo().getAwbNo(); // tracking with multiple AWBs
 
         RestTemplate restTemplate = new RestTemplate();
-
 
         System.out.println("trackingURL:"+trackingURL);
         HttpHeaders headers = new HttpHeaders();

@@ -75,6 +75,7 @@ public class CarrierLabelGeneratorServiceImpl implements CarrierLabelGeneratorSe
 
                 CarrierLabels labelInfo = new CarrierLabels();
 
+                System.out.println("::::::BEFORE CALL");
                 switch (providerCode) {
                     case "SHIPROCKET":
 
@@ -97,7 +98,7 @@ public class CarrierLabelGeneratorServiceImpl implements CarrierLabelGeneratorSe
                     default:
                         break;
                 }
-
+                System.out.println("::::::AFTER CALL");
                 System.out.println("---- labelInfo from service" + labelInfo);
                 labelInfo.setShipmentId(shipment.getId());
                 labelInfo.setAirwayBillCode(shipment.getAwbNo());
@@ -117,7 +118,7 @@ public class CarrierLabelGeneratorServiceImpl implements CarrierLabelGeneratorSe
 
 
         } catch (Exception e) {
-            System.out.println("Error:"+e.getMessage());
+            System.out.println("Error level 1:"+e.getMessage());
         }
     }
 

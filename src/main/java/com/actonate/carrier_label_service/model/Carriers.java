@@ -1,12 +1,15 @@
 package com.actonate.carrier_label_service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -69,5 +72,9 @@ public class Carriers {
 
     @Column(name = "tracking_api_provider")
     private String trackingApiProvider;
+
+    @JsonIgnoreProperties("carriers")
+    @OneToMany(mappedBy = "carriers")
+    private List<CarrierServices> carrierServices = new ArrayList<>();
 
 }

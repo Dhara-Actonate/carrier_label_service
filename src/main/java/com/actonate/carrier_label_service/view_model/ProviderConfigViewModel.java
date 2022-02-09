@@ -13,4 +13,7 @@ public class ProviderConfigViewModel {
     public String baseUrl = "";
     public String token = "";
 
+    public String loginId = "";
+    public String customerCode = "";
+
 }
